@@ -1,0 +1,33 @@
+_repo: Australian-Legendary-Tales--folk-lore-of-the-Noongahburrahs-as-told-to-the-Piccaninnies_3833
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Parker, K. Langloh (Katie Langloh)
+    aliases:
+    - Stow, Catherine Somerville Field
+    - Parker, Catherine Somerville Field
+    - Field, Catherine Eliza Somerville
+    - Field, Katie
+    - Parker, Kate
+    birthdate: 1856
+    deathdate: 1940
+    gutenberg_agent_id: '1318'
+    url: http://www.gutenberg.org/2009/agents/1318
+    wikipedia: http://en.wikipedia.org/wiki/K_Langloh_Parker
+description: ''
+gutenberg_bookshelf: Australia
+gutenberg_issued: '2003-03-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '3833'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcc 'GR'
+- !lcsh 'Folklore -- Australia'
+- GITenberg
+title: 'Australian Legendary Tales: folk-lore of the Noongahburrahs as told to the
+  Piccaninnies'
+url: http://www.gutenberg.org/ebooks/3833
