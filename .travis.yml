@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: dmdg8ybna73o7UXVmwiIf8Arj7vdeII8Gm+/elZRhoKK1RBI3tpImlekeGwMg7zhqjjXmZBIqV3zy5uDYMcptJWShEN2ZAirK7frxLf0ph3AMf/oAyjPE+JmBAGyBMEEUHk68OB48hvILqxkBAqly4IDBX/DsjBiPxsj7jHCgSxtD4A0l+a9JiDPMD+iyPLVZn5GDm3oSVDhxCQQBYEqeFLAg/f8c/p1rVg4j8r+Uq4x3+cuqWCc6hFCfSmKinD7kvK4Q9Xf3pb7gbvPixjGj8J89JCkcmznCR+nyHCeWnduzeQj9FFbJXtnI6d4bkgdqO5RWGZTzRmJxjmop9xutNFP9gCH6WCAyh7w56ABFYx6J4xByOq0M22owDSLHT2cwz7DjXpwtzuaVMeV3+j6n4s9zHEQeENCiwZsPwjZbfrLgQcyRFXmbEyZm9P6z3ghDWSFzIplL06QtA+pRoWEDbfH3h+MAZBobJ8JNpDDWIMkXKYBgD96kGquZogpYjLqVyxpDGV5iAq3/3+bVLsfBzhIWLOtHGe9c6IMv5NL5IWBcvYLe7sDId/ER4HCbJLzRf4FkgzboUikF4N9QkLnw5/hn4lKv3ERQASdNJwyrLaC+eZj1/yQLSKIYjiPyr0h3SG24kVWs7w1oV5Z2aX40nn/sIgTVeh4Kx3zI9Q3KcI=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/Australian-Legendary-Tales--folk-lore-of-the-Noongahburrahs-as-told-to-the-Piccaninnies_3833
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
