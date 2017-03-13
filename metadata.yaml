@@ -1,5 +1,8 @@
 _repo: Australian-Legendary-Tales--folk-lore-of-the-Noongahburrahs-as-told-to-the-Piccaninnies_3833
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Parker, K. Langloh (Katie Langloh)
@@ -15,6 +18,8 @@ creator:
     url: http://www.gutenberg.org/2009/agents/1318
     wikipedia: http://en.wikipedia.org/wiki/K_Langloh_Parker
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/3833#Australian-Legendary-Tales--folk-lore-of-the-Noongahburrahs-as-told-to-the-Piccaninnies
 gutenberg_bookshelf: Australia
 gutenberg_issued: '2003-03-01'
 gutenberg_type: Text
